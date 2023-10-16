@@ -1,8 +1,5 @@
-// document.getElementById("btnadd").addEventListener("click",AjouterClient);
+ document.getElementById("form").addEventListener("submit",AjouterClient);
 
-// document.getElementById("form").submit(function(){
-    
-// });
 
 function AjouterClient(e)
 {
@@ -25,22 +22,7 @@ function AjouterClient(e)
         if(this.readyState === XMLHttpRequest.DONE && this.status === 201)
         {
             document.getElementById("msg").innerHTML='<div>'+xhr.responseText+'</div>';
-            let mydata = {
-                nom : nom,
-                prenom: prenom,
-                username: username,
-                email: email,
-                password: password,
-                phone: phone,
-                devise: devise,
-                type: type,
-                solde: solde
-            }
-            // console.log(mydata);
             
-            const data = JSON.stringify(mydata);
-            // console.log(data);
-            xhr.send(data);
         }
         else
         {
@@ -48,6 +30,20 @@ function AjouterClient(e)
         }
     }
 
+    let mydata = {
+        nom : nom,
+        prenom: prenom,
+        username: username,
+        email: email,
+        password: password,
+        phone: phone,
+        devise: devise,
+        type: type,
+        solde: solde
+    }
+    // console.log(mydata);
     
-    return false;
+    const data = JSON.stringify(mydata);
+    console.log(data);
+    xhr.send(data);
 }
